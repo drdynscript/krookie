@@ -16,6 +16,18 @@ restService.post('/echo', function(req, res) {
     });
 });
 
+restService.post('/temp', function(req, res) {
+    var temps = [
+        "hot", "cold"
+    ];
+    var speech = "It's very " + temps[Math.round(Math.random())];
+    return res.json({
+        speech: speech,
+        displayText: speech,
+        source: 'webhook-echo-sample'
+    });
+});
+
 restService.post('/hook', function (req, res) {
 
     console.log('hook request');
